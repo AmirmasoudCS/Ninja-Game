@@ -14,3 +14,6 @@ class PhysicsEntity:
 
         self.pos[0] += frame_movement[0]
         self.pos[1] += frame_movement[1]
+
+    def render(self, surf):
+        surf.blit(self.game.assets['player'], self.pos)
