@@ -25,7 +25,7 @@ class Game:
         while True:
             self.screen.fill((14, 219, 248))
 
-            self.player.update((self.movement[1] - self.movement[0]), 0)
+            self.player.update((self.movement[1] - self.movement[0], 0))
             self.player.render(self.screen)
 
             for event in pygame.event.get():
