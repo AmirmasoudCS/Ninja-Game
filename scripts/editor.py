@@ -78,7 +78,7 @@ class Editor:
                         self.movement[1] = True
                     if event.key in (pygame.K_UP, pygame.K_w):
                         self.movement[2] = True
-                    if event.key in (pygame.K_DOWN or pygame.K_s):
+                    if event.key in (pygame.K_DOWN, pygame.K_s):
                         self.movement[3] = True
                 if event.type == pygame.KEYUP:
                     if event.key in (pygame.K_LEFT, pygame.K_a):
@@ -87,7 +87,7 @@ class Editor:
                         self.movement[1] = False
                     if event.key in (pygame.K_UP, pygame.K_w):
                         self.movement[2] = False
-                    if event.key in (pygame.K_DOWN or pygame.K_s):
+                    if event.key in (pygame.K_DOWN, pygame.K_s):
                         self.movement[3] = False
 
             self.screen.blit(pygame.transform.scale(self.display, self.screen.get_size()), (0, 0))
