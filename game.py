@@ -36,10 +36,14 @@ class Game:
         while True:
             self.display.fill((14, 219, 248))
 
-            self.tilemap.render(self.display, offset=self.scroll)
+            self.scroll[0] += (self.player.rect().centerx -  self.display.get_width() / 2 - self.scroll[0]) / 30
+            self.scroll[1] += (self.player.rect().centery -  self.display.get_height() / 2 - self.scroll[1]) / 30
+            render_scroll = int(self.scroll[0], int(self.scroll[1]))
+
+            self.tilemap.render(self.display, offset=render_scroll)
 
             self.player.update(self.tilemap, (self.movement[1] - self.movement[0], 0))
-            self.player.render(self.display, offset=self.scroll)
+            self.player.render(self.display, offset=render_scroll)
 
 
 
