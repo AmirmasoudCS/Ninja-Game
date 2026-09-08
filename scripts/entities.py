@@ -10,8 +10,18 @@ class PhysicsEntity:
         self.velocity = [0, 0]
         self.collisions = {'up' : False, 'down': False, "left":False, 'right':False}
 
+        self.action = ''
+        self.anim_offset = (-3, -3)
+        self.flip = False
+        self.set_action('idle')
+
     def rect(self):
         return pygame.Rect(self.pos[0], self.pos[1], self.size[0], self.size[1])
+
+    def set_action(self, action):
+        if action != self.action:
+            self.action = action
+            self.animation = self.assets[self.e_type + '/' + self.action].copy()
 
     def update(self, tilemap, movement=(0, 0)):
         self.collisions = {'up' : False, 'down': False, "left":False, 'right':False}
