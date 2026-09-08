@@ -26,3 +26,6 @@ class Animation:
 
     def copy(self):
         return Animation(self.images, self.img_duration, self.loop)
+
+    def img(self):
+        return self.images[int(self.frame / self.img_duration)]
