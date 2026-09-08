@@ -68,10 +68,10 @@ class Editor:
                             self.tile_group = (self.tile_group - 1) % len(self.tile_list)
                         if event.button == 5:
                             self.tile_group = (self.tile_group + 1) % len(self.tile_list)
-                    if event.key == pygame.K_LSHIFT:
-                        self.shift = True
 
                 if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_LSHIFT:
+                        self.shift = True
                     if event.key in (pygame.K_LEFT, pygame.K_a):
                         self.movement[0] = True
                     if event.key in (pygame.K_RIGHT, pygame.K_d):
@@ -81,6 +81,8 @@ class Editor:
                     if event.key in (pygame.K_DOWN, pygame.K_s):
                         self.movement[3] = True
                 if event.type == pygame.KEYUP:
+                    if event.key == pygame.K_LSHIFT:
+                        self.shift = False
                     if event.key in (pygame.K_LEFT, pygame.K_a):
                         self.movement[0] = False
                     if event.key in (pygame.K_RIGHT, pygame.K_d):
