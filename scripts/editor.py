@@ -40,6 +40,11 @@ class Editor:
         while True:
             self.display.fill((0, 0, 0))
 
+            current_tile_img = self.assets[self.tile_list[self.tile_group]][self.tile_variant].copy()
+            current_tile_img.set_alpha(150)
+            self.display.blit(current_tile_img, (5, 5))
+
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
