@@ -51,14 +51,18 @@ class Tilemap:
         for loc in self.tilemap:
             tile = self.tilemap[loc]
             neighbors = set()
+
             for shift in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
                 check_loc = str(tile['pos'][0] + shift[0]) + ';' + str(tile['pos'][1] + shift[1])
+
                 if check_loc in self.tilemap:
                     if self.tilemap[check_loc]['type'] == tile['type']:
                         neighbors.add(shift)
+
             neighbors = tuple(sorted(neighbors))
+
             if (tile['type'] in AUTOTILE_TYPES) and (neighbors in AUTOTILE_MAP):
-                tile['var'] = AUTOTILE_MAP[neighbors]
+                tile['variant'] = AUTOTILE_MAP[neighbors]
 
     def physics_rects_around(self, pos):
         rects = []
@@ -66,6 +70,7 @@ class Tilemap:
             if tile['type'] in PHYSICS_TILES:
                 rects.append(pygame.Rect(tile['pos'][0] * self.tile_size, tile['pos'][1] * self.tile_size, self.tile_size, self.tile_size))
         return rects
+
     def render(self, surf, offset=(0, 0)):
 
         for tile in self.offgrid_tiles:
