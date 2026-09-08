@@ -22,3 +22,11 @@ class Clouds:
             self.clouds.append(Cloud((random.random() * 99999, random.random() * 99999), random.choice(cloud_images), random.random() * 0.5 + 0.05, random.random() * 0.6 + 0.2))
 
         self.clouds.sort(key=lambda x: x.depth)
+
+    def update(self):
+        for cloud in self.clouds:
+            cloud.update()
+
+    def render(self, surf, offset=(0, 0)):
+        for cloud in self.clouds:
+            cloud.render(surf, offset=offset)
