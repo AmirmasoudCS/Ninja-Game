@@ -14,6 +14,7 @@ class PhysicsEntity:
         return pygame.Rect(self.pos[0], self.pos[1], self.size[0], self.size[1])
 
     def update(self, tilemap, movement=(0, 0)):
+        self.collisions = {'up' : False, 'down': False, "left":False, 'right':False}
         frame_movement = (movement[0] + self.velocity[0], movement[1] + self.velocity[1])
 
         self.pos[0] += frame_movement[0]
@@ -47,6 +48,9 @@ class PhysicsEntity:
                 self.pos[1] = entity_rect.y
 
         self.velocity[1] = min(5, self.velocity[1] + 0.1)
+
+        if self.collisions['down'] or self.collisions['up']:
+            self.velocity[1] = 0
 
     def render(self, surf):
         surf.blit(self.game.assets['player'], self.pos)
