@@ -36,6 +36,7 @@ class Editor:
 
         self.clicking = False
         self.right_clicking = False
+        self.shift = False
 
     def run(self):
 
@@ -56,11 +57,19 @@ class Editor:
                         self.clicking = True
                     if event.button == 3:
                         self.right_clicking = True
-                    if event.button == 4:
-                        self.tile_group = (self.tile_group - 1) % len(self.tile_list)
-                    if event.button == 5:
-                        self.tile_group = (self.tile_group + 1) % len(self.tile_list)
 
+                    if self.shift:
+                        if event.button == 4:
+                            self.tile_variant = (self.tile_variant - 1) % len(self.assets[self.tile_list[self.tile_group]])
+                        if event.button == 5:
+                            self.tile_variant = (self.tile_variant + 1) % len(self.assets[self.tile_list[self.tile_group]])
+                    else:
+                        if event.button == 4:
+                            self.tile_group = (self.tile_group - 1) % len(self.tile_list)
+                        if event.button == 5:
+                            self.tile_group = (self.tile_group + 1) % len(self.tile_list)
+                    if event.key == pygame.K_LSHIFT:
+                        self.shift = True
 
                 if event.type == pygame.KEYDOWN:
                     if event.key in (pygame.K_LEFT, pygame.K_a):
