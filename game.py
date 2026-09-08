@@ -27,14 +27,14 @@ class Game:
         }
 
         self.player = PhysicsEntity(self, 'player', (50, 50), (8, 15))
-        self.tilemap = Tilemap(tile_size=16)
+        self.tilemap = Tilemap(self, tile_size=16)
 
     def run(self):
 
         while True:
             self.display.fill((14, 219, 248))
 
-            self.tilemap.render(self, self.display)
+            self.tilemap.render(self.display)
 
             self.player.update((self.movement[1] - self.movement[0], 0))
             self.player.render(self.display)
