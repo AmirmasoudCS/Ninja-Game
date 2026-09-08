@@ -66,8 +66,10 @@ class Editor:
                     else:
                         if event.button == 4:
                             self.tile_group = (self.tile_group - 1) % len(self.tile_list)
+                            self.tile_variant = 0
                         if event.button == 5:
                             self.tile_group = (self.tile_group + 1) % len(self.tile_list)
+                            self.tile_variant = 0
 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LSHIFT:
