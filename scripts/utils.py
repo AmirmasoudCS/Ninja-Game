@@ -16,9 +16,13 @@ def load_images(path):
     return images
 
 class Animation:
+
     def __init__(self, images, img_dur=5, loop=True):
         self.images = images
         self.img_duration = img_dur
         self.loop = loop
         self.done = False
         self.frame = 0
+
+    def copy(self):
+        return Animation(self.images, self.img_duration, self.loop)
