@@ -118,6 +118,11 @@ class Game:
                 elif abs(self.player.dashing) < 50:
                     if self.player.rect().collidepoint(projectile[0]):
                         self.projectiles.remove(projectile)
+                        for _ in range(30):
+                            angle = random.random() * math.pi * 2
+                            speed = random.random() * 5
+                            self.sparks.append(Spark(self.player.rect().center, angle, 2 + random.random()))
+                            self.particles.append(Particle(self.game, 'particle', self.palyer.rect().center, velocity=[math.cos(angle + math.pi) * speed * 0.5, math.sin(angle + math.pi) * speed * 0.5], frame=random.randint(0, 7)))
                 
             for spark in self.sparks.copy():
                 kill = spark.update()
