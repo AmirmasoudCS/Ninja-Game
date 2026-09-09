@@ -121,7 +121,7 @@ class Player(PhysicsEntity):
             if abs(self.dashing) == 51:
                 self.velocity[0] *= 0.1
             pvelocity = [abs(self.dashing) / self.dashing * random.random() * 3, 0]
-            self.game.particles.append(Particle(self.game, 'particle', self.rect().center), velocity=pvelocity, frame=random.randint(0, 7))
+            self.game.particles.append(Particle(self.game, 'particle', self.rect().center, velocity=pvelocity, frame=random.randint(0, 7)))
         if abs(self.dashing) in {60, 50}:
             for _ in range(20):
                 angle = random.random() * math.pi * 2
