@@ -102,6 +102,10 @@ class Player(PhysicsEntity):
                 self.set_action('run')
             else:
                 self.set_action('idle')
+        if self.velocity[0] > 0:
+            self.velocity[0] = max(self.velocity[0] - 0.1, 0)
+        else:
+            self.velocity[0] = min(self.velocity[0] + 0.1, 0)
 
     def jump(self):
         if self.wall_slide:
