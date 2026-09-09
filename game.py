@@ -72,6 +72,8 @@ class Game:
 
         self.projectiles = []
 
+        self.sparks = []
+
         self.scroll = [0, 0]
 
 
@@ -114,6 +116,11 @@ class Game:
                     if self.player.rect().collidepoint(projectile[0]):
                         self.projectiles.remove(projectile)
                 
+            for spark in self.sparks.copy():
+                kill = spark.update()
+                spark.render(self.display, offset=render_scroll)
+                if kill:
+                    self.sparks.remove(spark)
 
             for particle in self.particles.copy():
                 kill = particle.update()
