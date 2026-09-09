@@ -83,6 +83,7 @@ class Player(PhysicsEntity):
         self.air_time = 0
         self.jumps = 1
         self.wall_slide = False
+        self.dashing = 0
 
     def update(self, tilemap, movement=(0, 0)):
         super().update(tilemap, movement)
@@ -106,6 +107,14 @@ class Player(PhysicsEntity):
                 self.set_action('run')
             else:
                 self.set_action('idle')
+        if self.dashing > 0:
+            self.dashing = max(0, self.dashing - 1)
+        if self.dashing < 0:
+            self.dashing = min(0, self.dashing + 1)
+        if abs(self.dashing) > 50:
+            self.velocity[0] = abs(self.dashing) / self.dashing * 8
+            if abs(self.dashing) == 51:
+                self.velocity[0] *= 0.1
         if self.velocity[0] > 0:
             self.velocity[0] = max(self.velocity[0] - 0.1, 0)
         else:
@@ -129,3 +138,10 @@ class Player(PhysicsEntity):
             self.velocity[1] = -3
             self.jumps -= 1
             self.air_time = 5
+
+    def dash(self):
+        if not self.dashing:
+            if self.flip:
+                self.dashing = -60
+            else:
+                self.dashing = 60
