@@ -1,4 +1,9 @@
 import pygame
+import math
+import random
+
+from scripts.particle import Particle
+
 
 class PhysicsEntity:
 
@@ -115,6 +120,14 @@ class Player(PhysicsEntity):
             self.velocity[0] = abs(self.dashing) / self.dashing * 8
             if abs(self.dashing) == 51:
                 self.velocity[0] *= 0.1
+            pvelocity = [abs(self.dashing) / self.dashing * random.random() * 3, 0]
+            self.game.particles.append(Particle(self.game, 'particle', self.rect().center), velocity=pvelocity, frame=random.randint(0, 7))
+        if abs(self.dashing) in {60, 50}:
+            for _ in range(20):
+                angle = random.random() * math.pi * 2
+                speed = random.random() * 0.5 = 0.5
+                pvelocity = [math.cos(angle) * speed, math.sin(angle) * speed] 
+                self.game.particles.append(Particle(self.game, 'particle', self.rect().center), velocity=pvelocity, frame=random.randint(0, 7))
         if self.velocity[0] > 0:
             self.velocity[0] = max(self.velocity[0] - 0.1, 0)
         else:
@@ -145,3 +158,7 @@ class Player(PhysicsEntity):
                 self.dashing = -60
             else:
                 self.dashing = 60
+
+    def render(self, surf, offset=(0, 0)):
+        if abs(self.dashing) <= 50:
+            super().render(surf=surf, offset=offset)
