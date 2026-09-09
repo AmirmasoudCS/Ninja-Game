@@ -40,7 +40,7 @@ class Game:
             'particle/particle': Animation(load_images('particles/particle'), img_dur=6, loop=False),
             'enemy/idle':Animation(load_images('entities/enemy/idle'), img_dur=6),
             'enemy/run':Animation(load_images('entities/enemy/run'), img_dur=4),
-            'gun': load_images('gun.png'),
+            'gun': load_image('gun.png'),
         }
 
         self.clouds = Clouds(self.assets['clouds'], count=16)
