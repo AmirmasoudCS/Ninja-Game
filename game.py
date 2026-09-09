@@ -52,6 +52,11 @@ class Game:
 
         self.tilemap.load('map.json')
 
+        self.load_level(0)
+
+    def load_level(self, map_id):
+        self.tilemap.load('data/maps/' + str(map_id) + '.json')
+
         self.leaf_spawners = []
         for tree in self.tilemap.extract([('large_decor', 2)], keep=True):
             self.leaf_spawners.append(pygame.Rect(4 + tree['pos'][0], 4 + tree['pos'][1], 23, 13))
@@ -68,6 +73,7 @@ class Game:
         self.projectiles = []
 
         self.scroll = [0, 0]
+
 
     def run(self):
 
