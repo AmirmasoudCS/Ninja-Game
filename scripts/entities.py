@@ -15,6 +15,8 @@ class PhysicsEntity:
         self.flip = False
         self.set_action('idle')
 
+        self.last_movement = [0, 0]
+
     def rect(self):
         return pygame.Rect(self.pos[0], self.pos[1], self.size[0], self.size[1])
 
@@ -61,6 +63,8 @@ class PhysicsEntity:
             self.flip = False
         if movement[0] < 0:
             self.flip = True
+
+        self.last_movement = movement
 
         self.velocity[1] = min(5, self.velocity[1] + 0.1)
 
