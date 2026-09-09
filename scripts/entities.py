@@ -103,6 +103,11 @@ class Enemy(PhysicsEntity):
 
         super().update(tilemap, movement=movement)
 
+        if movement[0] != 0:
+            self.set_action('run')
+        else:
+            self.set_action('idle')
+
 
 class Player(PhysicsEntity):
     def __init__(self, game, pos, size):
