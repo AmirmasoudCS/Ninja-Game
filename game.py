@@ -53,7 +53,8 @@ class Game:
 
         self.tilemap.load('map.json')
 
-        self.load_level(0)
+        self.level = 0
+        self.load_level(self.level)
 
         self.screenshake = 0
 
@@ -93,7 +94,7 @@ class Game:
             if self.dead:
                 self.dead += 1
                 if self.dead > 40:
-                    self.load_level(0)
+                    self.load_level(self.load_level)
 
             self.scroll[0] += (self.player.rect().centerx -  self.display.get_width() / 2 - self.scroll[0]) / 30
             self.scroll[1] += (self.player.rect().centery -  self.display.get_height() / 2 - self.scroll[1]) / 30
