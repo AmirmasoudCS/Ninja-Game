@@ -109,7 +109,7 @@ Maps are saved to `map.json`.
 └── 📝 requirements.txt
 ```
 
-> Generated using Tree Printer.
+> Generated using [Tree Printer](https://github.com/AmirmasoudCS/Tree-Printer.git)
 
 ## ⚙️ Installation
 
