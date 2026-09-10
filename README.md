@@ -1,3 +1,10 @@
+# My Motivation
+Recently I decided to take a break from AI and Agentic this, Agentic that and tried the field of Game Development and boy, it is hard...
+I noticed that game development is all math, physics, calculus, and geometry (at least as deep as I got into it) and I LOVE IT!
+It has been a fantastic couple of weeks trying Pygame in Python to develop games and not relying on a game engine, implementing your own tools like level editors and collision handling with masks and projectile management and optimizations and ... it has all been really fun and educational.
+I might end up switching to a game engine like Godot if I want to develop any more games since I think developing without a game engine can be a great learning journey but I want to put the little time I have into making fun games as my side project rather than dumping huge hours into fixing a pixel-perfect collision handling.
+Anyways it has been a great two-week journey, but I am afraid it is time for me to get back to the AI field and learn more things there since learning is like a rabbit hole and the more you learn, the more you get stuck into this rabbit hole and want to go deeper and deeper to learn more and more and since the current trend is AI, I think invesing some time in that field can be more beneficial for me, I will not abandon the game development, however.
+
 # Ninja Game
 
 A simple 2D platformer built with Python and Pygame as a personal learning project.
