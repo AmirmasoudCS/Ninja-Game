@@ -55,6 +55,8 @@ class Game:
 
         self.load_level(0)
 
+        self.screenshake = 0
+
     def load_level(self, map_id):
         self.tilemap.load('data/maps/' + str(map_id) + '.json')
 
@@ -85,6 +87,8 @@ class Game:
 
         while True:
             self.display.blit(self.assets['background'], (0, 0))
+
+            self.screenshake = max(0, self.screenshake - 1)
 
             if self.dead:
                 self.dead += 1
@@ -130,6 +134,7 @@ class Game:
                     if self.player.rect().collidepoint(projectile[0]):
                         self.projectiles.remove(projectile)
                         self.dead += 1
+                        self.screenshake = max(16, self.screenshake)
                         for _ in range(30):
                             angle = random.random() * math.pi * 2
                             speed = random.random() * 5
@@ -169,7 +174,8 @@ class Game:
                     if event.key in (pygame.K_RIGHT, pygame.K_d):
                         self.movement[1] = False
 
-            self.screen.blit(pygame.transform.scale(self.display, self.screen.get_size()), (0, 0))
+            self.screenshake_offset = (random.random() * self.screenshake - self.screenshake / 2, random.random() * self.screenshake - self.screenshake / 2)
+            self.screen.blit(pygame.transform.scale(self.display, self.screen.get_size()), self.screenshake_offset)
             pygame.display.update()
             self.clock.tick(60)
 
