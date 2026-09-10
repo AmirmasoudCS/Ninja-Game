@@ -77,11 +77,18 @@ class Game:
 
         self.scroll = [0, 0]
 
+        self.dead = 0
+
 
     def run(self):
 
         while True:
             self.display.blit(self.assets['background'], (0, 0))
+
+            if self.dead:
+                self.dead += 1
+                if self.dead > 40:
+                    self.load_level(0)
 
             self.scroll[0] += (self.player.rect().centerx -  self.display.get_width() / 2 - self.scroll[0]) / 30
             self.scroll[1] += (self.player.rect().centery -  self.display.get_height() / 2 - self.scroll[1]) / 30
@@ -103,8 +110,9 @@ class Game:
                 if kill:
                     self.enemies.remove(enemy)
 
-            self.player.update(self.tilemap, (self.movement[1] - self.movement[0], 0))
-            self.player.render(self.display, offset=render_scroll)
+            if not self.dead:
+                self.player.update(self.tilemap, (self.movement[1] - self.movement[0], 0))
+                self.player.render(self.display, offset=render_scroll)
 
             for projectile in self.projectiles.copy():
                 projectile[0][0] += projectile[1]
@@ -120,6 +128,7 @@ class Game:
                 elif abs(self.player.dashing) < 50:
                     if self.player.rect().collidepoint(projectile[0]):
                         self.projectiles.remove(projectile)
+                        self.dead += 1
                         for _ in range(30):
                             angle = random.random() * math.pi * 2
                             speed = random.random() * 5
