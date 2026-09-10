@@ -148,6 +148,8 @@ class Player(PhysicsEntity):
     def update(self, tilemap, movement=(0, 0)):
         super().update(tilemap, movement)
         self.air_time += 1
+        if self.air_time > 180:
+            self.game.dead += 1
         if self.collisions['down']:
             self.air_time = 0
             self.jumps = 1
