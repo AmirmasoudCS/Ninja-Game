@@ -83,6 +83,7 @@ class Game:
 
         self.dead = 0
 
+        self.transition = -30
 
     def run(self):
 
@@ -90,6 +91,14 @@ class Game:
             self.display.blit(self.assets['background'], (0, 0))
 
             self.screenshake = max(0, self.screenshake - 1)
+
+            if not len(self.enemies):
+                self.transition += 1
+                if self.transition > 30:
+                    self.level += 1
+                    self.load_level(self.level)
+            if self.transition < 0:
+                self.transition += 1
 
             if self.dead:
                 self.dead += 1
@@ -174,6 +183,12 @@ class Game:
                         self.movement[0] = False
                     if event.key in (pygame.K_RIGHT, pygame.K_d):
                         self.movement[1] = False
+
+            if self.transition:
+                transition_suf = pygame.Surface(self.display.get_size())
+                pygame.draw.circle(transition_suf, (255, 255, 255), (self.display.get_width()//2, self.display.get_height()//2), (30 - abs(self.transition)) * 8)
+                transition_suf.set_colorkey((255, 255, 255))
+                self.display.blit(transition_suf, (0, 0))
 
             self.screenshake_offset = (random.random() * self.screenshake - self.screenshake / 2, random.random() * self.screenshake - self.screenshake / 2)
             self.screen.blit(pygame.transform.scale(self.display, self.screen.get_size()), self.screenshake_offset)
