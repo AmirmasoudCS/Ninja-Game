@@ -1,5 +1,6 @@
 import pygame
 import sys
+import os
 import random
 import math
 
@@ -95,7 +96,7 @@ class Game:
             if not len(self.enemies):
                 self.transition += 1
                 if self.transition > 30:
-                    self.level += 1
+                    self.level = min(self.level + 1, len(os.listdir('data/maps')))
                     self.load_level(self.level)
             if self.transition < 0:
                 self.transition += 1
