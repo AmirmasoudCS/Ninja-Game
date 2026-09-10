@@ -144,7 +144,7 @@ A packaged Windows build is also available. You can run the game's `.exe` direct
 
 The game's visual assets were sourced from **DaFluffyPotato** and are used as free assets for this personal learning project.
 
-## 📄 License
+## ⚖️ License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
