@@ -4,15 +4,13 @@ A simple 2D platformer built with Python and Pygame as a personal learning proje
 
 The goal is straightforward: progress through three levels and defeat all enemies using your dash ability. The project focuses on learning the fundamentals of 2D game development, including player movement, physics, collisions, enemy behavior, particles, tilemaps, animations, and level editing.
 
-<!-- Game Screenshot -->
+<div align="center">
 
-![Game Screenshot](github_assets/demo.png)
+<img src="github_assets/gameplay.gif" alt="7-second gameplay GIF">
 
-<!-- 7-second Gameplay GIF -->
+</div>
 
-![Gameplay](github_assets/gameplay.gif)
-
-## Gameplay
+## 🎮 Gameplay
 
 You control a ninja character who must clear each level by defeating every enemy.
 
@@ -27,9 +25,15 @@ The main mechanics include:
 * **Particles and effects:** Dash trails, sparks, leaves, and other particle effects add visual feedback during gameplay.
 * **Camera:** The camera smoothly follows the player while exploring the levels.
 
-You currently get three levels to play through.
+There are currently three levels to play through.
 
-## Tilemap Editor
+<div align="center">
+
+<img src="github_assets/demo.png" alt="Game Screenshot">
+
+</div>
+
+## 🗺️ Tilemap Editor
 
 The project includes a built-in tilemap editor that can be used to create and modify maps.
 
@@ -51,7 +55,7 @@ It also includes an autotiling system for automatically selecting appropriate gr
 
 Maps are saved to `map.json`.
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 📁
@@ -97,9 +101,10 @@ Maps are saved to `map.json`.
 ├── 📘 README.md
 └── 📝 requirements.txt
 ```
-> Generated using [Tree Printer](https://github.com/AmirmasoudCS/Tree-Printer.git)
 
-## Installation
+> Generated using Tree Printer.
+
+## ⚙️ Installation
 
 Make sure you have **Python 3.12** installed.
 
@@ -117,11 +122,11 @@ Then run the game:
 python game.py
 ```
 
-## Running the Build
+## 📦 Running the Build
 
 A packaged Windows build is also available. You can run the game's `.exe` directly without running the Python source code.
 
-## Controls
+## 🎯 Controls
 
 | Key                  | Action     |
 | -------------------- | ---------- |
@@ -130,19 +135,19 @@ A packaged Windows build is also available. You can run the game's `.exe` direct
 | `Space` / `Up Arrow` | Jump       |
 | `V` / `Left Ctrl`    | Dash       |
 
-## Built With
+## 🛠️ Built With
 
 * Python 3.12
 * Pygame
 
-## Assets
+## 🎨 Assets
 
 The game's visual assets were sourced from **DaFluffyPotato** and are used as free assets for this personal learning project.
 
-## License
+## 📄 License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
-## Project Status
+## 📌 Project Status
 
 This project is considered finished in its current form. It was created as a small personal learning project, although it may be expanded or built upon in the future.
