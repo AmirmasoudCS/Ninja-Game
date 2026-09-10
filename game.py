@@ -96,7 +96,7 @@ class Game:
             if not len(self.enemies):
                 self.transition += 1
                 if self.transition > 30:
-                    self.level = min(self.level + 1, len(os.listdir('data/maps')))
+                    self.level = min(self.level + 1, len(os.listdir('data/maps')) - 1)
                     self.load_level(self.level)
             if self.transition < 0:
                 self.transition += 1
