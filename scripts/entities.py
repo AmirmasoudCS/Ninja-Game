@@ -215,6 +215,7 @@ class Player(PhysicsEntity):
             self.velocity[1] = -3
             self.jumps -= 1
             self.air_time = 5
+            return True
 
     def dash(self):
         if not self.dashing:
